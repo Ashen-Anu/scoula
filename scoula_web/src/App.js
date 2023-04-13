@@ -15,9 +15,11 @@ import ParentDashboard from "./components/parent/parentDashboard";
 import EnrolledStudents from "./components/parent/enrolledStudents"
 import SearchVehicles from "./components/searchVehicles";
 import Location from "./components/parent/location";
+import OwnerDashboard from "./components/owner/ownerDashboard";
 
 /* Auth Middleware */
 import { AuthorizeUser, ProtectRoute } from "./middleware/auth";
+
 
 
 /* root routes */
@@ -65,6 +67,10 @@ const router= createBrowserRouter([
   {
     path:'/location',
     element:<AuthorizeUser> < Location /> </AuthorizeUser>
+  },
+  {
+    path:'/ownerdashboard',
+    element:<AuthorizeUser> < OwnerDashboard /> </AuthorizeUser>
   },
   {
     path: '*',
