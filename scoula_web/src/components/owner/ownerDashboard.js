@@ -16,9 +16,9 @@ export default function OwnerDashboard(){
         <div className="main">
             <div className="sidebar">
             <ul className="comp-sidebar">
-                <Link to="/parentdashboard">
+                <Link to="/ownerdashboard">
                 <ul>
-                    <li>Parent Dashboard</li>
+                    <li>Owner Dashboard</li>
                 </ul>
                 </Link>
                 <Link to="/home">
@@ -26,19 +26,19 @@ export default function OwnerDashboard(){
                     <li>Home</li>
                 </ul>
                 </Link>
-                <Link to="/searchvehicles">
+                <Link to="/addvehicles">
                 <ul>
-                    <li>Search Vehicles</li>
+                    <li>Add Vehicles</li>
                 </ul>
                 </Link>
-                <Link to="/enrolledstudents">
+                <Link to="/myvehicles">
                 <ul>
-                    <li>Students Enrolled</li>
+                    <li>My Vehicles</li>
                 </ul>
                 </Link>
-                <Link to='/location'>
+                <Link to='/driverregistration'>
                 <ul>
-                    <li>Location</li>
+                    <li>Driver Registration</li>
                 </ul>
                 </Link>
                 <Link onClick={userLogout} to="/">

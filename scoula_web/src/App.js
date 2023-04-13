@@ -16,9 +16,13 @@ import EnrolledStudents from "./components/parent/enrolledStudents"
 import SearchVehicles from "./components/searchVehicles";
 import Location from "./components/parent/location";
 import OwnerDashboard from "./components/owner/ownerDashboard";
+import DriverRegistration from "./components/owner/driverRegistration";
+import AddVehicles from "./components/owner/addvehicles";
+import ViewVehicles from "./components/owner/viewvehicles";
 
 /* Auth Middleware */
 import { AuthorizeUser, ProtectRoute } from "./middleware/auth";
+
 
 
 
@@ -71,6 +75,18 @@ const router= createBrowserRouter([
   {
     path:'/ownerdashboard',
     element:<AuthorizeUser> < OwnerDashboard /> </AuthorizeUser>
+  },
+  {
+    path:'/driverregistration',
+    element:<AuthorizeUser> < DriverRegistration /> </AuthorizeUser>
+  },
+  {
+    path:'/addvehicles',
+    element:<AuthorizeUser> < AddVehicles /> </AuthorizeUser>
+  },
+  {
+    path:'/myvehicles',
+    element:<AuthorizeUser> < ViewVehicles /> </AuthorizeUser>
   },
   {
     path: '*',
