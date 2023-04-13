@@ -22,7 +22,8 @@ const Password= () =>
         validateOnBlur:false,
         validateOnChange:false,
         onSubmit:async values =>{
-           
+
+            
             let loginPromise= verifyPassword({email, password:values.password})
             toast.promise(loginPromise,{
                 loading: 'Verifying your account...',
@@ -32,7 +33,7 @@ const Password= () =>
             loginPromise.then (res=>{
                 let {token} = res.data;
                 localStorage.setItem('token',token)
-                navigate('/profile')
+                navigate('/home')
             })
         }
     })
