@@ -1,7 +1,7 @@
 .main{
     width: 100vw;
     height: 100vh;
-    background-color: rgb(219, 217, 217);
+    background-color: white;
 }
 body{
     margin: 0;
@@ -10,7 +10,7 @@ body{
 .sidebar{
     height: 100%;
     width: 300px;
-    background-color: rgb(32, 177, 255);
+    background-color: rgb(52, 54, 0);
 }
 .comp-sidebar{
     height:100%;
@@ -30,5 +30,6 @@ li{
 }
 li:hover{
     cursor: pointer;
-    background-color: darkblue;
+    background-color: rgb(241, 197, 15);
+    color: black;
 }

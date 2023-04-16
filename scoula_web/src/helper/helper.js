@@ -99,3 +99,14 @@ export async function resetPassword({ email, password }){
         return Promise.reject({ error })
     }
 }
+
+/** Add Vehicle Function */
+export async function addVehicle(credentials){
+    try {
+        const {data:{msg} }=await axios.post(`/api/addvehicle`,credentials)
+
+        return Promise.resolve(msg);
+    } catch (error) {
+        return Promise.reject({error})
+    }
+}

@@ -33,6 +33,7 @@ const Registration= () =>
         }
     })
     return (
+        <div className="bgcol">
         <div className="flex justify-center items-center h-screen">
         <Toaster position="top-center" reverseOrder={false}></Toaster>
         <div className="cover">
@@ -63,6 +64,7 @@ const Registration= () =>
             <span className="text-gray-500">Already have an account? <Link className="text-red-500"  to="/">Login Now</Link></span>
             </form> 
 
+        </div>
         </div>
         </div>
     );

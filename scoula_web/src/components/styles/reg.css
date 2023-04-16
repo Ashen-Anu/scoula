@@ -55,7 +55,7 @@
 .login-btn {
     width: 40%;
     height: 3em;
-    background-color: rgb(32, 177, 255);
+    background-color: rgb(241, 197, 15);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,8 +83,4 @@
     border-color: gray;
     width: 105px;
     margin-bottom: -20px;
-}
-
-input[type='file']{
-    display: none;
 }

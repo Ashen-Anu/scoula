@@ -12,13 +12,14 @@ import Registration from "./components/registration";
 import Reset from "./components/reset";
 import Vehicles from "./components/parent/vehicles"
 import ParentDashboard from "./components/parent/parentDashboard";
-import EnrolledStudents from "./components/parent/enrolledStudents"
 import SearchVehicles from "./components/searchVehicles";
 import Location from "./components/parent/location";
 import OwnerDashboard from "./components/owner/ownerDashboard";
 import DriverRegistration from "./components/owner/driverRegistration";
 import AddVehicles from "./components/owner/addvehicles";
 import ViewVehicles from "./components/owner/viewvehicles";
+import StudentEnrol from "./components/parent/studentReg";
+
 
 /* Auth Middleware */
 import { AuthorizeUser, ProtectRoute } from "./middleware/auth";
@@ -61,10 +62,6 @@ const router= createBrowserRouter([
     element:<AuthorizeUser><ParentDashboard /></AuthorizeUser>
   },
   {
-    path:'/enrolledstudents',
-    element:<AuthorizeUser><EnrolledStudents /></AuthorizeUser>
-  },
-  {
     path:'/searchvehicles',
     element:<AuthorizeUser> < SearchVehicles /> </AuthorizeUser>
   },
@@ -87,6 +84,10 @@ const router= createBrowserRouter([
   {
     path:'/myvehicles',
     element:<AuthorizeUser> < ViewVehicles /> </AuthorizeUser>
+  },
+  {
+    path:'/studentreg',
+    element:<AuthorizeUser> < StudentEnrol /> </AuthorizeUser>
   },
   {
     path: '*',

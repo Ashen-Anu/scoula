@@ -3,7 +3,6 @@ import "./styles/reg.css";
 import { Link , useNavigate} from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
-import { profileVal } from "../helper/validate";
 
 const Profile= () =>
 {
@@ -16,7 +15,7 @@ const Profile= () =>
             email:'',
             address:'',
         },
-        validate: [profileVal],
+        
         validateOnBlur:false,
         validateOnChange:false,
         onSubmit:async values =>{

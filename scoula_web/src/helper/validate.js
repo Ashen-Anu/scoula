@@ -69,6 +69,9 @@ function verifyMobile(error={}, values){
     if(!values.mobile){
         error.mobile=toast.error("Mobile Number Required...!");
     }
+    else if(values.mobile.length!==10){
+        error.mobile=toast.error("Please Enter a valid number");
+    }
     return error;
 }
 
@@ -94,7 +97,87 @@ function roleVerify(error={}, values){
     return error;
 }
 
-export async function profileVal(values){
-    const errors= usernameVerify({},values);
+
+
+
+// Functions required to add a vehicle
+function modelVal(error={}, values){
+    if(!values.vehicle_model){
+        error.vehicle_model=toast.error("Vehicle Model Required...!");
+    }
+    return error;
+}
+function regnumVal(error={}, values){
+    if(!values.vehicle_number){
+        error.vehicle_number=toast.error("Vehicle Number Required...!");
+    }
+    else if(values.vehicle_number.length!==7){
+        error.vehicle_number=toast.error("Please Enter the Vehicle Number to the format in the placeholder");
+    }
+    return error;
+}
+function seating_capacity(error={}, values){
+    if(!values.seating_capacity){
+        error.seating_capacity=toast.error("Seating Capacity Required...!");
+    }
+    return error;
+}
+function start_location(error={}, values){
+    if(!values.start_location){
+        error.start_location=toast.error("Start Location Required...!");
+    }
+    return error;
+}
+function end_location(error={}, values){
+    if(!values.end_location){
+        error.end_location=toast.error("End Location Required...!");
+    }
+    return error;
+}
+function start_time(error={}, values){
+    if(!values.start_time){
+        error.start_time=toast.error("Start Time Required...!");
+    }
+    return error;
+}
+function end_time(error={}, values){
+    if(!values.end_time){
+        error.end_time=toast.error("End Time Required...!");
+    }
+    return error;
+}
+function route(error={}, values){
+    if(!values.route){
+        error.route=toast.error("Route Required...!");
+    }
+    return error;
+}
+
+//Calling the export function 
+export async function addVehicleValidate(values){
+    const errors= modelVal({},values);
+    regnumVal(errors,values);
+    verifyMobile(errors,values);
+    seating_capacity(errors,values);
+    start_location(errors,values);
+    end_location(errors,values);
+    start_time(errors,values);
+    end_time(errors,values);
+    route(errors,values);
     return errors;
+}
+
+//calling name validate function
+function nameVal(error={},values){
+    if(!values.student_name){
+        error.student_name= toast.error("Name Required")
+    }
+}
+
+//calling export function of student reg page
+export async function studentVal(values){
+    const errors= nameVal({},values);
+    verifyMobile(errors.values);
+    start_location(errors.values);
+    end_location(errors.values);
 }

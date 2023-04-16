@@ -3,6 +3,7 @@ import bcrypt from "bcrypt";
 import jwt  from "jsonwebtoken";
 import ENV from "../config.js";
 import otpGenerator from "otp-generator"
+import vehiclemodel from "../model/vehiclemodel.js";
 
 
 /** Middleware for verify user */
@@ -192,5 +193,50 @@ export async function resetPassword(req,res){
         }
     } catch (error) {
         return res.status(401).send({error})
+    }
+}
+
+/** POST : http://localhost:8080/api/addvehicle 
+  @param:{
+    "vehicle_model":"toyota",
+    "vehicle_number":"PC-2002",
+    "mobile_number":"0714242121",
+    "seating_capacity":"15",
+    "start_location":"Matara",
+    "end_location":"Thihagoda",
+    "start_time":"8.00",
+    "end_time":"8.14",
+    "route":"aass",
+    "photo":""
+  }
+*/
+export async function addVehicle(req,res){
+    try {
+        const { vehicle_model, vehicle_number, mobile, seating_capacity,start_location,end_location, start_time, end_time,  route, photo }=req.body;
+
+        //check whether the vehicle number is existing.
+        const existVN= await vehiclemodel.findOne({vehicle_number})
+        if(existVN){
+            return res.status(400).json({errorMessage: "The Vehicle is already registered"})
+        }
+        const vehicle= new vehiclemodel({
+            vehicle_model, 
+            vehicle_number, 
+            mobile, 
+            seating_capacity,
+            start_location,
+            end_location, 
+            start_time, 
+            end_time,
+            route,
+            photo:photo ||''
+        })
+
+        //return and save the result as a response
+        vehicle.save()
+            .then(result=>res.status(201).send({msg:"Listing added"}))
+            .catch(error=>res.status(500).send({error}))}
+     catch (error) {
+        return res.status(500).send(error);
     }
 }

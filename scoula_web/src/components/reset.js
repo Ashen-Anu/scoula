@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./styles/reset.css";
 import toast, { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
@@ -12,7 +12,7 @@ const Reset= () =>
 {
     const {email}=useAuthStore(state=>state.auth)
     const navigate= useNavigate()
-    const [{isLoading,apiData,status,serverError }] = useFetch('createResetSession')
+    const [{isLoading,status,serverError }] = useFetch('createResetSession')
 
     
     

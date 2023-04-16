@@ -12,6 +12,7 @@ router.route('/register').post(controller.register);
 router.route('/login').post(controller.verifyUser,controller.login);
 router.route('/registerMail').post(registerMail); //send email
 router.route('/authenticate').post(controller.verifyUser,(req,res)=> res.end()); //authenticate
+router.route('/addvehicle').post(controller.addVehicle);
 
 /** GET */ 
 router.route('/user/:email').get(controller.getUser)
