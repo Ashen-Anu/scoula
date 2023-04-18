@@ -19,6 +19,7 @@ router.route('/user/:email').get(controller.getUser)
 router.route('/generateOTP').get(controller.verifyUser,localvariables,controller.generateOTP) //get otp
 router.route('/verifyOTP').get(controller.verifyUser,controller.verifyOTP) //verify otp
 router.route('/createResetSession').get(controller.createResetSession) //reset variable
+router.route('/getVehicledata').get(controller.getVehicledata)
 
 /** PUT */
 router.route('/resetPassword').put(controller.verifyUser, controller.resetPassword); //reset password

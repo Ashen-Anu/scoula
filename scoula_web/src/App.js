@@ -10,14 +10,13 @@ import PasswordRecover from "./components/passwordRecover";
 import Home from "./components/home";
 import Registration from "./components/registration";
 import Reset from "./components/reset";
-import Vehicles from "./components/parent/vehicles"
 import ParentDashboard from "./components/parent/parentDashboard";
 import SearchVehicles from "./components/searchVehicles";
 import Location from "./components/parent/location";
 import OwnerDashboard from "./components/owner/ownerDashboard";
 import DriverRegistration from "./components/owner/driverRegistration";
 import AddVehicles from "./components/owner/addvehicles";
-import ViewVehicles from "./components/owner/viewvehicles";
+import ViewVehicles from "./vehicles";
 import StudentEnrol from "./components/parent/studentReg";
 
 
@@ -54,10 +53,6 @@ const router= createBrowserRouter([
     element: <Reset></Reset>
   },
   {
-    path: '/vehicles',
-    element:<AuthorizeUser><Vehicles /></AuthorizeUser>
-  },
-  {
     path: '/parentdashboard',
     element:<AuthorizeUser><ParentDashboard /></AuthorizeUser>
   },
@@ -82,7 +77,7 @@ const router= createBrowserRouter([
     element:<AuthorizeUser> < AddVehicles /> </AuthorizeUser>
   },
   {
-    path:'/myvehicles',
+    path:'/viewvehicles',
     element:<AuthorizeUser> < ViewVehicles /> </AuthorizeUser>
   },
   {

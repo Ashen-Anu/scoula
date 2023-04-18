@@ -240,3 +240,12 @@ export async function addVehicle(req,res){
         return res.status(500).send(error);
     }
 }
+export async function getVehicledata(req,res){
+    try {
+        const vehicles= await vehiclemodel.find();
+        res.json(vehicles);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error');
+    }
+}

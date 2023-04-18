@@ -120,9 +120,6 @@ li:hover{
     margin-bottom: -20px;
 }
 
-input[type='file']{
-    display: none;
-}
 .photoUp{
     color: grey;
     align-items: center;

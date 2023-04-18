@@ -22,7 +22,8 @@ const AddVehicles= () =>
             end_location:'',
             start_time:'',
             end_time:'',
-            route:''
+            route:'',
+            photo:''
         },
         validate: addVehicleValidate,
         validateOnBlur:false,
@@ -33,7 +34,7 @@ const AddVehicles= () =>
             toast.promise(vehiclePromise,{
                 loading:'Creating....',
                 success:<b>Vehicle Added</b>,
-                error: <b>Could not add vehicle</b>
+                error: <b>Vehicle is Already Registered</b>
             });
             vehiclePromise.then(function(){navigate('/ownerdashboard')})
         }
@@ -77,7 +78,6 @@ const AddVehicles= () =>
                 <textarea {...formik.getFieldProps('route')} name="route" id="route" type="text" placeholder="Route"></textarea>
             </div>
             <div className="textbox flex flex-col items-center gap-6">
-            <label htmlFor="photo" className="photoUp"> Click here to upload photo </label>
                 <input onChange={onUpload} type="file" name="photo" id="photo"></input>
             </div>
             

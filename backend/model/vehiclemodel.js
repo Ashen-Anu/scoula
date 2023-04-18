@@ -46,6 +46,11 @@ export const VehicleSchema= new mongoose.Schema({
         required: [true, "Please provide the route"],
         unique:false,
     },
+    photo:{
+        type: String,
+        required: [true, "Please provide a photo"],
+        unique:false,
+    },
 });
 
 export default mongoose.model.Vehicles || mongoose.model('Vehicle',VehicleSchema);
