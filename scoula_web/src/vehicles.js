@@ -1,7 +1,6 @@
 import React,{useEffect,useState} from "react";
 import axios from 'axios';
 axios.defaults.baseURL= "http://localhost:8080";
-
 const ViewVehicles= () =>{
     const [vehicles, setVehicles]= useState([]);
     useEffect(()=>{
