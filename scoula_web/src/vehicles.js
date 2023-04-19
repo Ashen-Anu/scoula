@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from "react";
 import axios from 'axios';
+import "./components/styles/home.css"
 axios.defaults.baseURL= "http://localhost:8080";
 const ViewVehicles= () =>{
     const [vehicles, setVehicles]= useState([]);
@@ -14,7 +15,8 @@ const ViewVehicles= () =>{
         <div>
             {vehicles.map(vehicle=>(
                 <div key={ vehicle._id }>
-                    <img src={vehicle.photo} alt={vehicle.vehicle_model}></img>
+                    <img className="listingimg" src={vehicle.photo}></img>
+                    <h1>{vehicle.vehicle_model}</h1>
                 </div> 
             ))}
         </div>
