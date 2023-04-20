@@ -12,10 +12,10 @@ const ViewVehicles= () =>{
         getVehicledata();
     },[]);
     return(
-        <div>
+        <div className="flex justify-center items-center h-screen">
             {vehicles.map(vehicle=>(
                 <div key={ vehicle._id }>
-                    <img className="listingimg" src={vehicle.photo}></img>
+                    <img className="listingimg" alt=""src={vehicle.photo}></img>
                     <h1>{vehicle.vehicle_model}</h1>
                 </div> 
             ))}

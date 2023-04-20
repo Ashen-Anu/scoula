@@ -1,4 +1,10 @@
 .listingimg{
     height: 200px;
     width: 200px;
+    margin-right: 30px;
+    margin-top: -200px;
+}
+.listingimg :hover{
+    transform: scale(1.25);
+    cursor: pointer;
 }
