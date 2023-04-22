@@ -12,13 +12,19 @@ const ViewVehicles= () =>{
         getVehicledata();
     },[]);
     return(
-        <div className="flex justify-center items-center h-screen">
+        <div className="wrapper">
+            <div id="search-container">
+                <input id="search-input" type="search" placeholder="Enter your city"></input>
+                <button id="search">Search</button>
+            </div>
+            <div className="flex justify-center items-center h-screen">
             {vehicles.map(vehicle=>(
                 <div key={ vehicle._id }>
                     <img className="listingimg" alt=""src={vehicle.photo}></img>
                     <h1>{vehicle.vehicle_model}</h1>
                 </div> 
             ))}
+        </div>
         </div>
     )
 }
