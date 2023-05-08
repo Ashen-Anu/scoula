@@ -15,16 +15,7 @@ export const UserSchema= new mongoose.Schema({
         type: String,
         required: [true, "Please provide a password"],
         unique:false,
-    },
-    role:{
-        type: String,
-        required: [true, "Please provide a role"],
-        unique:false,
-    },
-    fname:{ type: String },
-    lname:{ type: String },
-    nic:{ type: String },
-    address:{ type: String }
+    }
 });
 
 export default mongoose.model.Users || mongoose.model('User',UserSchema);

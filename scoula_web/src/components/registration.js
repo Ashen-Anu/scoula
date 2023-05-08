@@ -15,8 +15,7 @@ const Registration= () =>
         initialValues:{
             email:'',
             mobile:'',
-            password:'',
-            role:''
+            password:''
         },
         validate: registerValidate,
         validateOnBlur:false,
@@ -46,15 +45,13 @@ const Registration= () =>
 
             <div className="profile flex justify-center py-4">
                 <label htmlFor="">
-                    <img className="profile_img" src={avatar} alt="avatar"></img>
+                    <img className="profile_img" src={avatar} alt="avatar"></img>``
                 </label>
-                <input type="file" id="profile" name="profile"></input>
             </div>
             <div className="textbox flex flex-col items-center gap-6">
                 <input {...formik.getFieldProps('email')} type="email" placeholder="Enter your Email" name="email" id="email"></input>
                 <input {...formik.getFieldProps('mobile')} type="text" placeholder="Enter your Mobile Number" name="mobile" id="mobile"></input>
                 <input {...formik.getFieldProps('password')} type="password" placeholder="Enter your password" name="password" id="password"></input>
-                <input {...formik.getFieldProps('role')} type="text" placeholder="Role (Parent, Driver, Owner)" name="role" id="role"></input>
             </div>
             
             <div className="login-btn">

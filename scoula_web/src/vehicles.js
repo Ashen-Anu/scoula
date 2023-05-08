@@ -12,19 +12,34 @@ const ViewVehicles= () =>{
         getVehicledata();
     },[]);
     return(
-        <div className="wrapper">
-            <div id="search-container">
-                <input id="search-input" type="search" placeholder="Enter your city"></input>
-                <button id="search">Search</button>
+        <div className="container">
+            <div className="header">
+                <h1>Our Vehicles</h1>
             </div>
-            <div className="flex justify-center items-center h-screen">
+            <div className="products">
             {vehicles.map(vehicle=>(
-                <div key={ vehicle._id }>
-                    <img className="listingimg" alt=""src={vehicle.photo}></img>
-                    <h1>{vehicle.vehicle_model}</h1>
-                </div> 
+                <div className="product" key={vehicle._id}>
+                    <div className="image">
+                        <img src={vehicle.photo} alt=""></img>
+                    </div>
+                    <div className="name">
+                        <h3>{vehicle.vehicle_model}</h3>
+                        <span>{vehicle.vehicle_number}</span>
+                    </div>
+                    <p>{vehicle.route}</p>
+                    <div className="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div className="view">
+                        <button>View Vehicle</button>
+                    </div>
+                </div>
             ))}
-        </div>
+            </div>
         </div>
     )
 }

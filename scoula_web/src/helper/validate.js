@@ -1,5 +1,5 @@
 import { toast } from "react-hot-toast";
-import { authenticate } from "./helper";
+import { authenticate, authenticatedriver, authenticateowner } from "./helper";
  
 /*validate username */
 export async function usernameValidate(values){
@@ -8,6 +8,32 @@ export async function usernameValidate(values){
     if(values.email){
         //check user exist or not
         const {status}=await authenticate(values.email);
+        if(status!==200){
+            errors.exist=toast.error('User does not exist')
+        }
+    }
+    return errors;
+}
+/*validate owner username */
+export async function ownerusernameValidate(values){
+    const errors = usernameVerify({}, values); 
+    
+    if(values.email){
+        //check user exist or not
+        const {status}=await authenticateowner(values.email);
+        if(status!==200){
+            errors.exist=toast.error('User does not exist')
+        }
+    }
+    return errors;
+}
+/*validate driver username */
+export async function driverusernameValidate(values){
+    const errors = usernameVerify({}, values); 
+    
+    if(values.email){
+        //check user exist or not
+        const {status}=await authenticatedriver(values.email);
         if(status!==200){
             errors.exist=toast.error('User does not exist')
         }
@@ -60,7 +86,6 @@ export async function registerValidate(values){
     const errors= usernameVerify({},values);
     passwordVerify(errors,values);
     verifyMobile(errors,values);
-    roleVerify(errors,values);
     return errors;
 }
 

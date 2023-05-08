@@ -1,13 +1,13 @@
 import React from "react";
-import "../styles/login.css";
-import avatar from "../../assets/images/logo.png"
+import "../../styles/login.css";
+import avatar from "../../../assets/images/logo.png"
 import { Link, useNavigate } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
-import { usernameValidate } from "../../helper/validate";
-import { useAuthStore } from "../../store";
+import { ownerusernameValidate } from "../../../helper/validate";
+import { useAuthStore } from "../../../store";
 
-const LoginEmail= () =>
+const OwnerLoginEmail= () =>
 {
 
     const navigate = useNavigate();
@@ -20,12 +20,12 @@ const LoginEmail= () =>
         initialValues:{
             email:'',
         },
-        validate: usernameValidate,
+        validate: ownerusernameValidate,
         validateOnBlur:false,
         validateOnChange:false,
         onSubmit:async values =>{
             setEmail(values.email)
-            navigate('/password')
+            navigate('/ownerpassword')
         }
     })
     return (
@@ -37,7 +37,7 @@ const LoginEmail= () =>
             
             <h1 className="text-5xl font-bold">Login</h1>
             
-            <span className="py-4 text-xl w-2/3 text-center text-gray-500">Hurry up! Login to find your child a school van</span>
+            <span className="py-4 text-xl w-2/3 text-center text-gray-500">Hurry up! Login to find students for your van</span>
 
             <div className="profile flex justify-center py-4">
                 <img className="profile_img" src={avatar} alt="avatar"></img>
@@ -57,4 +57,4 @@ const LoginEmail= () =>
         </div>
     );
 }
-export default LoginEmail
+export default OwnerLoginEmail

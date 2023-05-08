@@ -3,22 +3,23 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 
 /* Importing Components */
-import LoginEmail from "./components/login/email";
-import Password from "./components/login/password";
+import LoginEmail from "./components/parent/login/email";
+import Password from "./components/parent/login/password";
 import PageNotFound from "./components/pageNotFound";
 import PasswordRecover from "./components/passwordRecover";
 import Home from "./components/home";
 import Registration from "./components/registration";
 import Reset from "./components/reset";
 import ParentDashboard from "./components/parent/parentDashboard";
-import SearchVehicles from "./components/searchVehicles";
+import Aboutus from "./components/aboutus";
 import Location from "./components/parent/location";
 import OwnerDashboard from "./components/owner/ownerDashboard";
-import DriverRegistration from "./components/owner/driverRegistration";
 import AddVehicles from "./components/owner/addvehicles";
 import ViewVehicles from "./vehicles";
 import StudentEnrol from "./components/parent/studentReg";
-
+import OwnerLoginEmail from "./components/owner/login/email";
+import OwnerPassword from "./components/owner/login/password";
+import OwnerRegistration from "./components/owner/registration";
 
 /* Auth Middleware */
 import { AuthorizeUser, ProtectRoute } from "./middleware/auth";
@@ -49,6 +50,10 @@ const router= createBrowserRouter([
     element: <Registration></Registration>
   },
   {
+    path: '/ownerregistration',
+    element: <OwnerRegistration></OwnerRegistration>
+  },
+  {
     path: '/Reset',
     element: <Reset></Reset>
   },
@@ -57,8 +62,8 @@ const router= createBrowserRouter([
     element:<AuthorizeUser><ParentDashboard /></AuthorizeUser>
   },
   {
-    path:'/searchvehicles',
-    element:<AuthorizeUser> < SearchVehicles /> </AuthorizeUser>
+    path:'/aboutus',
+    element:<AuthorizeUser> <Aboutus/> </AuthorizeUser>
   },
   {
     path:'/location',
@@ -69,16 +74,20 @@ const router= createBrowserRouter([
     element:<AuthorizeUser> < OwnerDashboard /> </AuthorizeUser>
   },
   {
-    path:'/driverregistration',
-    element:<AuthorizeUser> < DriverRegistration /> </AuthorizeUser>
-  },
-  {
     path:'/addvehicles',
     element:<AuthorizeUser> < AddVehicles /> </AuthorizeUser>
   },
   {
     path:'/viewvehicles',
     element:<AuthorizeUser> < ViewVehicles /> </AuthorizeUser>
+  },
+  {
+    path: '/ownerLoginEmail',
+    element:<OwnerLoginEmail></OwnerLoginEmail>
+  },
+  {
+    path: 'ownerPassword',
+    element:<ProtectRoute><OwnerPassword></OwnerPassword></ProtectRoute>
   },
   {
     path:'/studentreg',

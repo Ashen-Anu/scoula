@@ -1,19 +1,19 @@
 import React from "react";
-import "../styles/login.css";
-import avatar from "../../assets/images/logo.png"
+import "../../styles/login.css";
+import avatar from "../../../assets/images/logo.png"
 import { Link,useNavigate } from "react-router-dom";
 import toast,{ Toaster } from "react-hot-toast";
 import { useFormik } from "formik";
-import { passwordValidate } from "../../helper/validate";
-import useFetch from "../../hooks/fetch.hook";
-import { useAuthStore } from "../../store";
-import { verifyPassword } from "../../helper/helper";
+import { passwordValidate } from "../../../helper/validate";
+import useFetch from "../../../hooks/fetch.hook";
+import { useAuthStore } from "../../../store";
+import { verifyPassword } from "../../../helper/helper";
 
-const Password= () =>
+const OwnerPassword= () =>
 {
     const navigate=useNavigate()
     const { email }= useAuthStore(state=> state.auth)
-    const [{isLoading, serverError}] =useFetch(`/user/${email}`)
+    const [{isLoading, serverError}] =useFetch(`/owner/${email}`)
     const formik= useFormik({
         initialValues:{
             password:'',
@@ -49,7 +49,7 @@ const Password= () =>
             
             <h1 className="text-5xl font-bold">Login</h1>
             
-            <span className="py-4 text-xl w-2/3 text-center text-gray-500">Hurry up! Login to find your child a school van</span>
+            <span className="py-4 text-xl w-2/3 text-center text-gray-500">Hurry up! Login to find students for your vehicle</span>
 
             <div className="profile flex justify-center py-4">
                 <img className="profile_img" src={avatar} alt="avatar"></img>
@@ -69,4 +69,4 @@ const Password= () =>
         </div>
     );
 }
-export default Password
+export default OwnerPassword
